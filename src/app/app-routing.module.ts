@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { FilmesListComponent } from './filmes/filmes-list.component';
 import { SeriesInfoComponent } from './series/series-info.component';
 import { SeriesListComponent } from './series/series-list.component';
 
@@ -13,8 +14,12 @@ const routes: Routes = [
     component: SeriesListComponent
   },
   {
-    path: 'series/info',
+    path: 'series/info/:id',
     component: SeriesInfoComponent
+  },
+  {
+    path: 'filmes',
+    component: FilmesListComponent
   }
 ];
 

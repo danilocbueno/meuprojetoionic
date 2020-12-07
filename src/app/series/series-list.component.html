@@ -11,11 +11,10 @@
     <ion-list>
         <ion-item *ngFor="let serie of series">
             <ion-label>
-                <h2>{{serie.nome}}</h2>
-                <h3>A série foi lançada em {{serie.dataLancamento}} e possui {{serie.temporadas}} temporadas.</h3>
-                <p>Nota: {{serie.nota}}</p>
-                
+                <h2>{{serie.nome}}</h2>                
                 <app-avaliacao nota="{{serie.nota}}"></app-avaliacao>
+                <br>
+                <a [routerLink]="['series/info', serie.id]">Detalhes</a>
 
             </ion-label>
         </ion-item>

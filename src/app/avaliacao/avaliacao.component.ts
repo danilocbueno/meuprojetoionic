@@ -2,7 +2,8 @@ import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
     templateUrl: "avaliacao.component.html",
-    selector: "app-avaliacao"
+    selector: "app-avaliacao",
+    styleUrls: ["avaliacao.component.css"]
 })
 
 export class AvaliacaoComponent implements OnInit {
@@ -12,14 +13,24 @@ export class AvaliacaoComponent implements OnInit {
     public icones = [];
 
     ngOnInit() {
-        console.log(this.nota);
-        //dependendo do valor da nota, o valor do vetor vai ser alterado..
+        for (let i = 0; i <= 4; i++) {
+            let minimo = i;
+            let maximo = i + 1;
+            let nomeIcone = null;
 
-        //3
-        //icones = ["heart", "heart", "heart", "heart-outline", "heart-outline"];
+            if(this.nota <= minimo) {
+                nomeIcone = "heart-outline";
+            }
 
-        //2.5
-        //icones = ["heart", "heart", "heart-half-outline", "heart-outline", "heart-outline"]
+            if(this.nota > minimo && this.nota < maximo) {
+                nomeIcone = "heart-half";
+            }
+
+            if(this.nota >= maximo) {
+                nomeIcone = "heart";
+            }
+
+            this.icones[i] = nomeIcone;
+        }
     }
-
 }
