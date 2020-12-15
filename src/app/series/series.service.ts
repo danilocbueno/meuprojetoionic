@@ -44,10 +44,12 @@ export class SeriesService {
 
   constructor() { }
 
-  pegarTodasSeries() {
+  //SELECT ALL (READ)
+  pegarTodasSeries() { 
     return this.series;
   }
 
+  //SELECT ONE (READ)
   pegarSeriePorId(idSerie) {
     let serie = null;
     for(let i=0; i< this.series.length; i++) {
@@ -59,4 +61,25 @@ export class SeriesService {
     }
     return serie;
   }
+
+  //INSERT (CREATE)
+  adicionarSerie(serie) {
+    this.series.push(serie);
+  }
+
+  //DELETE
+  removerSeriePorId(idSerie) {
+    //seu CODIGO vem aqui!
+
+    for(let i=0; i< this.series.length; i++) {
+      if(this.series[i].id == idSerie) {
+        this.series.splice(i, 1);
+        break; //parar a iteração do FOR
+      }
+
+    }
+    console.log(this.series);
+  }
+
+  //UPDATE
 }
