@@ -64,7 +64,24 @@ export class SeriesService {
 
   //INSERT (CREATE)
   adicionarSerie(serie) {
-    this.series.push(serie);
+    if(serie.id == null) {
+      //adicionar!
+      this.series.push(serie);
+    } else {
+      this.atualizarSerie(serie);
+    }
+  }
+
+  //UPDATE
+  atualizarSerie(serie) {
+      //descobrir aonde está o elemento na lista! (this.series)
+      //substituir (trocar o elemento anterior pelo atual)
+      for(let i=0; i< this.series.length; i++) {
+        if(this.series[i].id == serie.id) { //encontrei a serie que estou buscando!
+          this.series[i] = serie; //troco o elemento antigo pelo novo!
+          break; //parar a iteração do FOR
+        }
+      }
   }
 
   //DELETE

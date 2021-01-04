@@ -16,7 +16,7 @@
 
     <ion-list>
         <ion-item-sliding *ngFor="let serie of series">
-            <ion-item [routerLink]="['series/info', serie.id]" >
+            <ion-item [routerLink]="['series/info', serie.id]">
                 <ion-label>
                     <h2>{{serie.nome}}</h2>
                     <app-avaliacao nota="{{serie.nota}}"></app-avaliacao>
@@ -24,6 +24,7 @@
             </ion-item>
 
             <ion-item-options side="end">
+                <ion-item-option color="warning" [routerLink]="['series/add', serie.id]">Editar</ion-item-option>
                 <ion-item-option color="danger" (click)="removerSerie(serie.id)">Deletar</ion-item-option>
             </ion-item-options>
         </ion-item-sliding>

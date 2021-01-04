@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SeriesService } from './series.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
     selector: 'app-series-add',
@@ -11,10 +11,14 @@ export class SeriesAddComponent implements OnInit {
 
     public serie = {}
 
-    constructor(private seriesService: SeriesService, private router: Router) {}
+    constructor(private seriesService: SeriesService, private router: Router, private activatedRoute: ActivatedRoute) {}
 
-    ngOnInit() {
-
+    ngOnInit() { 
+        const id = this.activatedRoute.snapshot.paramMap.get("id"); //ta vindo via URL!
+        if(id !== null) {
+            this.serie = this.seriesService.pegarSeriePorId(id); //Pegando uma serie lá do serviço!
+            this.serie.id = id;
+        }
     }
 
     vaiFormulario() {

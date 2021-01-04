@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
 
 @Component({
     templateUrl: "avaliacao.component.html",
@@ -6,13 +6,13 @@ import { Component, Input, OnInit } from '@angular/core';
     styleUrls: ["avaliacao.component.css"]
 })
 
-export class AvaliacaoComponent implements OnInit {
+export class AvaliacaoComponent implements OnChanges {
 
     @Input()
     public nota = 0;
     public icones = [];
 
-    ngOnInit() {
+    ngOnChanges() {
         for (let i = 0; i <= 4; i++) {
             let minimo = i;
             let maximo = i + 1;
